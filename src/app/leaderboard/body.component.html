@@ -1,4 +1,4 @@
-<tr *ngFor="let info of allInfo() | sort: dataProvider.order ; let i = index">
+<tr *ngFor="let info of dataProvider.getSampleBody() | async | sort: dataProvider.order ; let i = index">
   <th> {{ i+1 }}</th>
   <td> {{ info.name }} </td>
   <td *ngFor="let m of info.marks" [ngStyle]="{'background': isSolved(m)}">

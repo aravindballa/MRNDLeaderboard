@@ -2,11 +2,12 @@ import {Injectable, OnInit} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from "rxjs";
+import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
 
 @Injectable()
 export class DataProviderService implements OnInit {
 
-  private url = 'src/app/output2.json';
+  private url = 'output2.json';
   public data = {
     "students": [
       {
@@ -69,18 +70,16 @@ export class DataProviderService implements OnInit {
     ]
   };
   private _order = 'dec';
+  items: FirebaseObjectObservable<any[]>;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private af: AngularFire) {
     this.getData();
   }
 
   ngOnInit(): void {}
 
   getData() {
-    const o: Observable<any> = this.http.get(this.url);
-    o.subscribe(res => {
-      this.data = (JSON.parse(res.text()));
-    });
+
   }
 
   set order(value: string) {
@@ -92,10 +91,18 @@ export class DataProviderService implements OnInit {
   }
 
   getSampleheadings() {
-    return this.data.questions;
+    let o = this.af.database.object('/spojstats/questions');
+    o.subscribe( res => {
+      return res;
+    });
+   return o;
   }
 
   getSampleBody() {
-    return this.data.students;
+    let o = this.af.database.object('/spojstats/students');
+    o.subscribe( res => {
+      return res;
+    });
+    return o;
   }
 }

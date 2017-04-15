@@ -1,6 +1,6 @@
 <th>#</th>
 <th>name</th>
-<th *ngFor="let heading of headings">
+<th *ngFor="let heading of headings | async">
   {{heading}}
 </th>
 <th (click)="toggleOrder()">total <span class="glyphicon glyphicon-resize-vertical" style="cursor: pointer"></span> </th>
