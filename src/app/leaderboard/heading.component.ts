@@ -10,6 +10,7 @@ export class HeadingComponent implements OnInit {
   private headings;
   constructor(private dataprovider: DataProviderService) {
     this.headings = this.dataprovider.getSampleheadings();
+    this.toggleOrder();
   }
 
   ngOnInit() {

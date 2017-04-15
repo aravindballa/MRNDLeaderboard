@@ -9,6 +9,16 @@ import { HeadingComponent } from './leaderboard/heading.component';
 import { BodyComponent } from './leaderboard/body.component';
 import {totalMarksPipe} from "./leaderboard/totalMarksPipe";
 import {SorterPipe} from "./leaderboard/SorterPipe";
+import {AngularFireModule} from "angularfire2";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCrIFw4jbcK8WnxUVfYcLO6i45kSsKwMF8",
+  authDomain: "mrnd-9a4ed.firebaseapp.com",
+  databaseURL: "https://mrnd-9a4ed.firebaseio.com",
+  projectId: "mrnd-9a4ed",
+  storageBucket: "mrnd-9a4ed.appspot.com",
+  messagingSenderId: "237703412089"
+};
 
 @NgModule({
   declarations: [
@@ -23,6 +33,7 @@ import {SorterPipe} from "./leaderboard/SorterPipe";
     BrowserModule,
     FormsModule,
     HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
