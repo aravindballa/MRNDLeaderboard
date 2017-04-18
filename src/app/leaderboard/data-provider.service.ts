@@ -7,7 +7,6 @@ import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'ang
 @Injectable()
 export class DataProviderService implements OnInit {
 
-  private url = 'output2.json';
   public data = {
     "students": [
       {
@@ -70,13 +69,13 @@ export class DataProviderService implements OnInit {
     ]
   };
   private _order = 'dec';
-  items: FirebaseObjectObservable<any[]>;
 
   constructor(private http: Http, private af: AngularFire) {
     this.getData();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   getData() {
 
@@ -91,18 +90,6 @@ export class DataProviderService implements OnInit {
   }
 
   getSampleheadings() {
-    let o = this.af.database.object('/spojstats/questions');
-    o.subscribe( res => {
-      return res;
-    });
-   return o;
-  }
-
-  getSampleBody() {
-    let o = this.af.database.object('/spojstats/students');
-    o.subscribe( res => {
-      return res;
-    });
-    return o;
+    return ['Name', 'College', 'Problems Solved']
   }
 }

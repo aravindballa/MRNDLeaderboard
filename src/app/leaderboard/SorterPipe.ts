@@ -6,7 +6,6 @@ import {Pipe, PipeTransform} from "@angular/core";
 export class SorterPipe implements PipeTransform {
   transform(array: Array<any>, args: any): Array<any> {
     if( array ) {
-
       const order = this.setOrder(args);
       array.sort((a: any, b: any) => {
         if ( this.calculateTotal(a.marks) < this.calculateTotal(b.marks) ) {
