@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-import { HeadingComponent } from './leaderboard/heading.component';
 import { BodyComponent } from './leaderboard/body.component';
+import { ProblemsComponent } from './leaderboard/problems.component';
 import {totalMarksPipe} from "./leaderboard/totalMarksPipe";
 import {SorterPipe} from "./leaderboard/SorterPipe";
 import {AngularFireModule} from "angularfire2";
@@ -24,8 +24,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     LeaderboardComponent,
-    HeadingComponent,
     BodyComponent,
+    ProblemsComponent,
     totalMarksPipe,
     SorterPipe
   ],

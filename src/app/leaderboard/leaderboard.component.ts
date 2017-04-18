@@ -4,11 +4,12 @@ import {DataProviderService} from './data-provider.service';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  providers: [DataProviderService]
+  providers: [DataProviderService],
+  
 })
 export class LeaderboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataProvider: DataProviderService) { }
 
   ngOnInit() {
   }

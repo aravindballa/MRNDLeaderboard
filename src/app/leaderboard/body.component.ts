@@ -1,30 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {DataProviderService} from './data-provider.service';
 
-import {AngularFire, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2';
-
-
 @Component({
   selector: '[id=app-body]',
   templateUrl: './body.component.html',
+  styleUrls: ['../assets/style.css'],
 })
 export class BodyComponent implements OnInit {
 
-  stats_body: any;
-  users: Array<String>;
-
-  constructor(private dataProvider: DataProviderService, private af: AngularFire) { 
+  constructor(private dataProvider: DataProviderService) { 
 
   }
 
   ngOnInit() {
-    let o = this.af.database.object('/spojstats2/students');
-    o.subscribe( res => {
-      console.log(res);
-      this.users = Object.keys(res);
-      this.stats_body = res;
-    });
-    //this.stats_body = o;
+    
   }
 
   allInfo() {
@@ -38,7 +27,7 @@ export class BodyComponent implements OnInit {
   }
 
   getStats() {
-    return this.stats_body;
+    return this.dataProvider.stats_body;
   }
 
 }

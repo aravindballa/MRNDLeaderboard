@@ -1,13 +1,18 @@
-<table>
-<tr *ngFor="let u of users; let i = index;">
-  <th> {{ i+1 }}</th>
-  <td> {{ stats_body[u].name }} </td>
-  <td *ngFor="let m of stats_body[u].marks" [ngStyle]="{'background': isSolved(m)}" style="display: none;">
-    {{ m }}
-  </td>
-  <td> {{ stats_body[u].college }} </td>
-  <td>{{ stats_body[u].marks | totalMarks }}</td>
-</tr>
-
+<table id="style-1">
+  <tr>
+    <th>#</th>
+    <th *ngFor="let heading of dataProvider.headings">
+      {{heading}}
+    </th>
+  </tr>
+  <tr *ngFor="let u of dataProvider.users | sort: [dataProvider.order, dataProvider.stats_body]; let i = index;" (click)="dataProvider.activePerson(u)">
+    <th> {{ i+1 }}</th>
+    <td> {{ dataProvider.stats_body[u].name }} </td>
+    <td *ngFor="let m of dataProvider.stats_body[u].marks" [ngStyle]="{'background': isSolved(m)}" style="display: none;">
+      {{ m }}
+    </td>
+    <td> {{ dataProvider.stats_body[u].college }} </td>
+    <td>{{ dataProvider.stats_body[u].marks | totalMarks }}</td>
+  </tr>
 </table>
 

@@ -1,14 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
 
-.greeting {
-  display: block;
-  margin-top: 38px;
-  padding-top: 65px;
-  padding-bottom: 65px;
-  font-family: 'Great Vibes', cursive;
-  font-size: 128px;
-  text-align: center;
-}
 
 .body {
   background-color: rgba(0, 0, 0, .09);
@@ -21,7 +11,6 @@
 }
 
 .heading {
-  margin-top: 70px;
   margin-bottom: 10px;
   font-family: Montserrat, sans-serif;
   text-align: center;
@@ -62,5 +51,41 @@
 }
 
 .notsolv {
+  margin-right: 15px;
+  margin-bottom: 14px;
   background-color: #b9b9b9;
+}
+
+table {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  height: 60vh;
+  overflow: auto;
+}
+
+tr td {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 8px;
+	background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }
