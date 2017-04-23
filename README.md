@@ -9,4 +9,7 @@ This is the Leaderboard for the SPOJ problems asked to solve for MRND SUMMER 201
 2. ```npm install```
 3. ```ng serve```
 
+## Futher Developments
+- We have the backend in Node Js. Have to integrate it with Anuglar (frontend) so that we can inititate web scrapping from the front end itself. By that we can have a server-less architecture.
+
 _Aravind Balla. 2017._
