@@ -15,6 +15,8 @@ export class BodyComponent implements OnInit {
 
   private _order = 'asc';
 
+  // this gets the data from data-provider.service.ts 
+  // and populates in this component
   constructor(private dataProvider: DataProviderService) { 
     dataProvider.getData().subscribe( res => {
       console.log(res);
@@ -31,18 +33,10 @@ export class BodyComponent implements OnInit {
     
   }
 
-  allInfo() {
-    return this.dataProvider.data.students;
-  }
-
   isSolved(solved) {
     if (solved) {
       return '#aed581';
     }
-  }
-
-  getStats() {
-    return this.dataProvider.stats_body;
   }
 
   set order(value: string) {

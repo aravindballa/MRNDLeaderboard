@@ -78,7 +78,7 @@ export class DataProviderService implements OnInit {
   lastUpdate: Date;
 
   constructor(private http: Http, private af: AngularFire) {
-    this.getData();
+    //this.getData();
     this.headings = ['Name', 'College', 'Problems Solved'];
   }
 
@@ -98,9 +98,6 @@ export class DataProviderService implements OnInit {
     return this._order;
   }
 
-  getSampleheadings() {
-    return this.headings;
-  }
   
   activePerson(u) {
     console.log(u);
