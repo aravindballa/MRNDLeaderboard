@@ -8,8 +8,13 @@ import {DataProviderService} from './data-provider.service';
   
 })
 export class LeaderboardComponent implements OnInit {
+  lastUpdate: Date;
 
-  constructor(private dataProvider: DataProviderService) { }
+  constructor(private dataProvider: DataProviderService) { 
+    dataProvider.getData().subscribe( res => {
+      this.lastUpdate = res.lastUpdated;
+    });
+  }
 
   ngOnInit() {
   }

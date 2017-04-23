@@ -74,22 +74,12 @@ export class DataProviderService implements OnInit {
   users: Array<String>;
   headings: Array<String>;
   problems: Array<String>;
-  aPerson: String;
+  static aPerson: string;
   lastUpdate: Date;
 
   constructor(private http: Http, private af: AngularFire) {
     this.getData();
     this.headings = ['Name', 'College', 'Problems Solved'];
-
-    let o = this.af.database.object('/spojstats2');
-    o.subscribe( res => {
-      console.log(res);
-      this.users = Object.keys(res.students);
-      this.stats_body = res.students;
-      this.problems = res.questions;
-      this.aPerson = this.users[0];
-      this.lastUpdate = res.lastUpdated;
-    });
   }
 
   ngOnInit(): void {
@@ -97,7 +87,7 @@ export class DataProviderService implements OnInit {
   }
 
   getData() {
-
+    return this.af.database.object('/spojstats2');
   }
 
   set order(value: string) {
@@ -114,6 +104,10 @@ export class DataProviderService implements OnInit {
   
   activePerson(u) {
     console.log(u);
-    this.aPerson = u;
+    DataProviderService.aPerson = u;
+  }
+
+  getaPerson(): string {
+    return DataProviderService.aPerson;
   }
 }
